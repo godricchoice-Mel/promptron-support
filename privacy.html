@@ -18,13 +18,14 @@
   </header>
 
   <main class="doc">
-    <p class="eyebrow">Last updated: June 3, 2026</p>
+    <p class="eyebrow">Last updated: July 2, 2026</p>
     <h1>Privacy Policy</h1>
     <p>
       Promptron is built so your content does not reach Promptron's servers. Generation uses
-      Bring Your Own Key (BYOK): your prompt is sent directly from your device to Anthropic
-      under your own API key. We do not collect, transmit to ourselves, sell, share for
-      advertising, or use your content for training.
+      Bring Your Own Key (BYOK): when you choose to use AI features with an Anthropic API key,
+      requests are sent directly from your device to Anthropic under your own API key. We do
+      not collect, transmit to ourselves, sell, share for advertising, or use your content for
+      Promptron training.
     </p>
 
     <h2>What Is Stored and Where</h2>
@@ -32,9 +33,35 @@
       <li><strong>Anthropic API key:</strong> stored in the iOS/macOS Keychain using this-device-only accessibility where available. It leaves the device only as the x-api-key header in requests to Anthropic.</li>
       <li><strong>Workspace:</strong> stored locally on your device, including account display name, projects, conversations, prompt text, generated prompt text, scores, and local account metadata.</li>
       <li><strong>Local account password:</strong> stored locally as a derived hash, not plaintext.</li>
+      <li><strong>Sign in with Apple account record:</strong> stored locally when you use Apple authentication, including Apple's account identifier and any name or email Apple returns.</li>
       <li><strong>Generation cache:</strong> stored locally to avoid repeated identical calls.</li>
       <li><strong>Subscription state:</strong> cached locally; real purchase status is handled by Apple when App Store purchases are configured.</li>
+      <li><strong>AI data sharing consent:</strong> stored locally so the App knows you have agreed before AI requests are sent to Anthropic.</li>
     </ul>
+
+    <h2>What May Be Sent to Anthropic</h2>
+    <p>
+      Before the App sends AI requests to Anthropic, it shows an in-app permission notice. If
+      you agree and use AI features, the following data may be sent directly from your device
+      to Anthropic:
+    </p>
+    <ul>
+      <li>The text you type into the composer.</li>
+      <li>Relevant local conversation context and any standing context you saved.</li>
+      <li>Text extracted locally from attachments you choose, such as txt, markdown, HTML, PDF, docx, or xlsx files.</li>
+      <li>Image attachment data when BYOK Vision is available and you choose to include images.</li>
+      <li>Generated prompt candidates and evaluation candidates needed to produce or score the result.</li>
+    </ul>
+
+    <h2>How Data Is Collected and Used</h2>
+    <p>
+      The App reads the content above only from your on-device workspace, text you enter, files
+      or images you explicitly select, links you paste, and account/authentication actions you
+      initiate. It uses this data to generate prompts, ask clarifying questions, read selected
+      references, evaluate results when enabled, maintain local conversations, authenticate the
+      local account, and unlock App Store purchases. Promptron does not receive this data on a
+      Promptron server.
+    </p>
 
     <h2>What We Do Not Do</h2>
     <p>
@@ -44,9 +71,11 @@
 
     <h2>Third-Party Processing</h2>
     <p>
-      When you generate, your prompt goes directly to Anthropic under your key and is governed
-      by Anthropic's privacy policy and terms. Purchases and Sign in with Apple are handled by
-      Apple. Google sign-in, when configured, is handled by Google.
+      Anthropic receives AI request data directly from your device only after your in-app
+      permission and only when an Anthropic-backed AI feature is used. Anthropic's handling of
+      that data is governed by Anthropic's privacy policy and terms; Anthropic states its API
+      services are designed to provide confidentiality and security protections for customer
+      content. Purchases and Sign in with Apple are handled by Apple.
     </p>
 
     <h2>Your Rights and Choices</h2>
@@ -55,6 +84,8 @@
       where provided or deleting the App. You can remove your local API key in settings. Where
       GDPR, UK GDPR, CCPA/CPRA, the Australian Privacy Act 1988, or other privacy laws apply,
       contact us about access, deletion, correction, portability, objection, or complaint rights.
+      You can decline the AI data sharing permission; in that case the App will not continue the
+      AI action that would send data to Anthropic.
     </p>
 
     <h2>Children</h2>
