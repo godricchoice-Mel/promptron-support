@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Promptron Privacy Policy</title>
-  <meta name="description" content="Promptron Privacy Policy.">
+  <meta name="description" content="How Promptron stores local data and sends permitted requests directly to Anthropic, OpenAI, Apple, Google, and referenced websites.">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -18,84 +18,144 @@
   </header>
 
   <main class="doc">
-    <p class="eyebrow">Last updated: July 2, 2026</p>
+    <p class="eyebrow">Last updated: August 2, 2026 · Version 2.03</p>
     <h1>Privacy Policy</h1>
+
+    <h2>Scope and Summary</h2>
     <p>
-      Promptron is built so your content does not reach Promptron's servers. Generation uses
-      Bring Your Own Key (BYOK): when you choose to use AI features with an Anthropic API key,
-      requests are sent directly from your device to Anthropic under your own API key. We do
-      not collect, transmit to ourselves, sell, share for advertising, or use your content for
-      Promptron training.
+      Promptron has no model-request backend: the operator does not receive your workspace,
+      provider key, prompt, attachment, microphone audio, or model response. This does not mean
+      that nothing leaves your device. When you permit and use an online feature, content is sent
+      directly to Anthropic or OpenAI. Pasted web links are fetched from the relevant website.
+      Apple processes App Store purchases you initiate; Google processes authentication only when
+      that option is configured and selected. Those parties
+      process data under their own policies and your account settings.
+    </p>
+    <p>
+      Promptron does not operate analytics, advertising, cross-app tracking, or a data broker,
+      and does not use your content for Promptron model training.
     </p>
 
-    <h2>What Is Stored and Where</h2>
+    <h2>What Is Stored on Your Device</h2>
     <ul>
-      <li><strong>Anthropic API key:</strong> stored in the iOS/macOS Keychain using this-device-only accessibility where available. It leaves the device only as the x-api-key header in requests to Anthropic.</li>
-      <li><strong>Workspace:</strong> stored locally on your device, including account display name, projects, conversations, prompt text, generated prompt text, scores, and local account metadata.</li>
-      <li><strong>Local account password:</strong> stored locally as a derived hash, not plaintext.</li>
-      <li><strong>Sign in with Apple account record:</strong> stored locally when you use Apple authentication, including Apple's account identifier and any name or email Apple returns.</li>
-      <li><strong>Generation cache:</strong> stored locally to avoid repeated identical calls.</li>
-      <li><strong>Subscription state:</strong> cached locally; real purchase status is handled by Apple when App Store purchases are configured.</li>
-      <li><strong>AI data sharing consent:</strong> stored locally so the App knows you have agreed before AI requests are sent to Anthropic.</li>
+      <li><strong>Provider keys:</strong> Anthropic and OpenAI keys are stored separately in the device Keychain with this-device-only accessibility where available. In an iOS Simulator debug build only, keys may be stored in that simulator's local preferences. A key is sent only to its matching provider as request authentication and never to Promptron.</li>
+      <li><strong>Workspace:</strong> account/profile details, projects, conversations, your text, generated prompts, scores, saved prompts, and preferences are stored in the App's local Application Support container. Model-derived files and new avatars are kept in a private directory for the active local account. They are not uploaded to Promptron.</li>
+      <li><strong>Local email profile:</strong> the normalized email, display name, random salt, and salted password hash are stored locally. It is not a Promptron cloud account, and Promptron does not receive the password.</li>
+      <li><strong>Generation cache:</strong> generated model text is cached in the active local account's private directory to avoid identical repeat calls. The cache key is a hash of the request rather than a readable copy of the input. Unattributed cache and evaluation files created at the App-data root by an older release are discarded rather than migrated into any account.</li>
+      <li><strong>Consent and settings:</strong> account-specific provider permissions and local consent timestamps/versions, subscription preferences, feature-usage counters, and UI settings are kept in local preferences.</li>
+      <li><strong>Selected attachments:</strong> files and images are read only when you select them. Extracted text and image data are held for the action. The App stores attachment names and resulting conversation content, not a cloud copy of the original file.</li>
     </ul>
 
-    <h2>What May Be Sent to Anthropic</h2>
+    <h2>Anthropic and OpenAI Processing</h2>
     <p>
-      Before the App sends AI requests to Anthropic, it shows an in-app permission notice. If
-      you agree and use AI features, the following data may be sent directly from your device
-      to Anthropic:
+      Before the current local Promptron account first contacts each AI provider, and again after
+      revocation or a material disclosure change, the App shows a provider-specific notice and asks
+      for permission. One local account's permission is not reused by another account on the device.
+      Anthropic and OpenAI choices are separate. Depending on the
+      feature, an allowed provider may receive:
     </p>
     <ul>
-      <li>The text you type into the composer.</li>
-      <li>Relevant local conversation context and any standing context you saved.</li>
-      <li>Text extracted locally from attachments you choose, such as txt, markdown, HTML, PDF, docx, or xlsx files.</li>
-      <li>Image attachment data when BYOK Vision is available and you choose to include images.</li>
-      <li>Generated prompt candidates and evaluation candidates needed to produce or score the result.</li>
+      <li>Your current request, relevant local conversation context, and saved profile context.</li>
+      <li>Capability guidance from the encyclopedia bundled with the App.</li>
+      <li>Text extracted locally from files you select or web pages you ask the App to fetch.</li>
+      <li>Images you select or linked images fetched from a pasted reference page.</li>
+      <li>Generated prompt candidates and instructions or candidates used for optional evaluation and follow-up suggestions.</li>
     </ul>
-
-    <h2>How Data Is Collected and Used</h2>
     <p>
-      The App reads the content above only from your on-device workspace, text you enter, files
-      or images you explicitly select, links you paste, and account/authentication actions you
-      initiate. It uses this data to generate prompts, ask clarifying questions, read selected
-      references, evaluate results when enabled, maintain local conversations, authenticate the
-      local account, and unlock App Store purchases. Promptron does not receive this data on a
-      Promptron server.
+      BYOK requests go directly to the matching API under your key. A separately distributed local
+      macOS build may pass the same categories to an installed, signed-in Claude or Codex CLI, which
+      then communicates under your provider subscription and settings. If automatic fallback is
+      available, only providers you have separately allowed are eligible.
+    </p>
+    <p>
+      OpenAI Responses API requests set <code>store: false</code> to request that application state
+      not be stored. This is not a promise of zero data retention: OpenAI may retain abuse-monitoring
+      logs or other data under its policy unless your organization has separately approved controls.
+      Retention and training choices for Anthropic API and Claude subscription, and for OpenAI API
+      and Codex subscription, depend on the applicable product, contract, and your provider account settings.
+      Review the current
+      <a href="https://www.anthropic.com/legal/privacy">Anthropic privacy policy</a> and
+      <a href="https://openai.com/policies/privacy-policy/">OpenAI privacy policy</a> before sending
+      sensitive content.
     </p>
 
-    <h2>What We Do Not Do</h2>
+    <h2>References, Images, and On-Device Recognition</h2>
     <p>
-      We do not run analytics, advertising, tracking, third-party SDKs, or server-side content
-      storage. We do not log your Anthropic API key or prompt content.
+      Local txt, markdown, HTML, PDF, docx, and xlsx extraction is performed on the device. PDF OCR
+      uses Apple's on-device Vision framework. When you paste an http/https link and start an action,
+      the App fetches that page and up to a limited number of linked images directly. That website can
+      receive ordinary connection data such as your IP address, user agent, and request time; its policy
+      applies. Fetched content can be included in an AI request only after the relevant provider permission.
+    </p>
+    <p>
+      Microphone dictation uses Apple's Speech framework with on-device recognition required. If
+      on-device recognition is unavailable for the selected language or device, recording does not
+      start. Microphone audio is not sent to Promptron, Anthropic, or OpenAI. Recognized text is treated
+      like typed composer text and is sent only if you later start an online action for an allowed provider.
     </p>
 
-    <h2>Third-Party Processing</h2>
+    <h2>Authentication and Purchases</h2>
     <p>
-      Anthropic receives AI request data directly from your device only after your in-app
-      permission and only when an Anthropic-backed AI feature is used. Anthropic's handling of
-      that data is governed by Anthropic's privacy policy and terms; Anthropic states its API
-      services are designed to provide confidentiality and security protections for customer
-      content. Purchases and Sign in with Apple are handled by Apple.
+      Promptron 2.0.3 does not offer Sign in with Apple. Google OAuth is contacted only when a Google
+      client is configured and you choose
+      it; Google handles the browser session, returned display name/email are stored locally, and
+      Promptron does not persist the access token. App Store purchases and entitlement verification are
+      handled by Apple. Promptron stores a local feature state and does not receive payment-card details.
     </p>
 
-    <h2>Your Rights and Choices</h2>
+    <h2>Support and Public Policy Pages</h2>
     <p>
-      You can access and delete local workspace data from your device by using in-app controls
-      where provided or deleting the App. You can remove your local API key in settings. Where
-      GDPR, UK GDPR, CCPA/CPRA, the Australian Privacy Act 1988, or other privacy laws apply,
-      contact us about access, deletion, correction, portability, objection, or complaint rights.
-      You can decline the AI data sharing permission; in that case the App will not continue the
-      AI action that would send data to Anthropic.
+      If you email support, the Promptron operator and its email service receive the address,
+      message, and attachments you choose to send. They are used to answer the request, prevent
+      abuse, and meet legal obligations, and retained only as reasonably necessary for those
+      purposes. Do not send an API key or material that is not needed for support. Opening these
+      public pages connects to GitHub Pages, which receives ordinary web-request data under GitHub's
+      policy; Promptron adds no analytics or tracking scripts to them.
     </p>
 
-    <h2>Children</h2>
+    <h2>No Analytics, Advertising, or Tracking</h2>
     <p>
-      Promptron is not directed to children under the age of digital consent in their jurisdiction
-      and is not intended for users under 16 unless local law permits a lower age with valid consent.
+      The App contains no Promptron analytics or advertising service, does not use data for cross-app
+      tracking, and does not sell data. Operational requests made directly to AI providers, websites,
+      Apple, or configured Google authentication are not Promptron analytics, but those parties may
+      process account, usage, device, or network data under their own policies.
     </p>
 
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:support@promptron.app">support@promptron.app</a></p>
+    <h2>Your Choices, Retention, and Deletion</h2>
+    <p>
+      In Settings you can revoke Anthropic or OpenAI permission independently, remove each local API
+      key, and delete the current local profile, its provider permissions and keys, on-device workspace,
+      conversations, Prompt library, standing context, model cache, saved evaluation data, and avatar.
+      Other local Promptron accounts and their data remain. Revocation or local deletion prevents future
+      requests for that account, but cannot retract provider-received content or delete your Anthropic or
+      OpenAI provider account. Exercise provider-side access, retention, training, or deletion choices
+      with Anthropic or OpenAI under your provider account. Deleting a local profile does not cancel
+      an App Store subscription; use Apple's controls to manage or cancel Pro.
+    </p>
+    <p>
+      Local data remains until you delete it through the App, reset the relevant setting, or the
+      operating system removes it. Device/cloud backups and Keychain items follow their own
+      operating-system lifecycles; because provider keys use this-device-only protection where
+      available, a restored workspace may require you to enter those credentials again.
+      Where GDPR, UK GDPR, CCPA/CPRA, the Australian Privacy Act 1988, or other privacy laws apply,
+      contact us about data the Promptron operator controls. Because there is no Promptron model backend,
+      provider-request rights generally must be exercised with the provider that received the request.
+    </p>
+
+    <h2>Children and International Processing</h2>
+    <p>
+      Promptron is not directed to children under the age of digital consent in their jurisdiction and
+      is not intended for users under 16 unless local law permits a lower age with valid consent.
+      Anthropic, OpenAI, Apple, Google, and referenced websites may process data in countries other than
+      your own. Their policies and account controls describe locations and safeguards. Avoid online AI
+      features if you cannot permit that processing.
+    </p>
+
+    <h2>Changes and Contact</h2>
+    <p>
+      Material changes will be notified in the App and may require renewed provider permission.<br>
+      Email: <a href="mailto:support@promptron.app">support@promptron.app</a>
+    </p>
   </main>
 
   <footer>

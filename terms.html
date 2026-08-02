@@ -18,7 +18,7 @@
   </header>
 
   <main class="doc">
-    <p class="eyebrow">Last updated: June 3, 2026</p>
+    <p class="eyebrow">Last updated: August 2, 2026 · Version 2.03</p>
     <h1>Terms of Service</h1>
 
     <h2>Agreement</h2>
@@ -36,27 +36,40 @@
       encyclopedia retrieval, and evaluation workflow.
     </p>
 
-    <h2>Bring Your Own Key</h2>
+    <h2>AI Providers, Consent, and Charges</h2>
     <p>
-      To generate with Anthropic models, you supply your own Anthropic API key. Requests are sent
-      directly from your device to Anthropic using your key. Promptron does not proxy, intercept,
-      resell, or store those requests or their content. You are responsible for your key, its usage,
-      rate limits, and Anthropic charges.
+      In the App Store build, live generation uses Bring Your Own Key (BYOK). You may provide an
+      Anthropic or OpenAI API key. A separately distributed local macOS build may also use an installed,
+      signed-in Claude or Codex CLI subscription. Promptron asks the current local account separately
+      before its first contact with either provider, and again after revocation or a material disclosure
+      change; permissions are not shared across local accounts. A fallback provider is eligible only if
+      it is configured and you have allowed it.
+    </p>
+    <p>
+      Requests go directly from your device to the selected provider. Promptron has no model-request
+      proxy and does not receive your key, prompt, attachments, or model response. Your credential is
+      used only with its matching provider. Provider processing, retention, account limits, and charges
+      are governed by that provider's terms, privacy policy, and your account settings. API and
+      subscription usage charges are separate from any Promptron purchase, and you are responsible for them.
     </p>
 
     <h2>Accounts</h2>
     <p>
-      The App offers a local email account, Sign in with Apple when configured, Google OAuth when
-      configured, and a limited Guest mode. Local accounts are stored on your device; local passwords
-      are not stored in plaintext.
+      Builds offer a local email profile, Google OAuth only when explicitly configured, and a limited
+      Guest mode. Promptron 2.0.3 does not offer Sign in with Apple. The email profile is not a cloud
+      account; its password is stored locally as a salted hash, not plaintext. Google authentication
+      is governed by Google's terms, and returned profile details are stored locally. Guest mode provides a
+      device-level limited trial and cannot be reset merely by signing out. To use an online AI provider,
+      you must satisfy that provider's minimum-age and account requirements.
     </p>
 
     <h2>Subscriptions and Billing</h2>
     <p>
-      Promptron offers Free and Pro tiers. Pro unlocks app features such as all product-line forms,
+      Promptron offers Free and Pro tiers. Pro unlocks app features such as additional forms,
       full encyclopedia retrieval, multi-project workspaces, live evaluation, and export. The
-      subscription unlocks app features only; model usage is paid directly to Anthropic through
-      your own key. App Store billing, renewal, cancellation, and refunds are administered by Apple.
+      subscription unlocks App features only; it does not include or resell Anthropic or OpenAI
+      usage. App Store billing, renewal, cancellation, and refunds are administered by Apple under
+      Apple's terms. Mandatory consumer refund rights are unaffected.
     </p>
 
     <h2>Acceptable Use</h2>
@@ -66,6 +79,15 @@
       product by unlawful means. You are responsible for prompts and outputs you use.
     </p>
 
+    <h2>Your Content and IP</h2>
+    <p>
+      Promptron retains rights in the App's software, branding, interface, and encyclopedia compilation.
+      You retain rights in your prompts, projects, conversations, and generated content. Because the App
+      stores your workspace locally and has no Promptron model backend, Promptron claims no ownership of
+      and needs no licence to your content for Promptron model training or hosted processing. Rights in
+      AI output are governed by the provider's terms and applicable law.
+    </p>
+
     <h2>AI Output and Evaluation</h2>
     <p>
       AI output may be inaccurate, incomplete, or unsuitable and is not professional advice.
@@ -73,15 +95,35 @@
       quality, correctness, legality, or fitness for purpose.
     </p>
 
-    <h2>Liability and Third Parties</h2>
+    <h2>Disclaimers and Consumer Guarantees</h2>
     <p>
-      To the extent permitted by law, Promptron is not liable for indirect or consequential loss
-      or loss arising from Anthropic, Apple, Google, third-party services, your API key usage, or
-      reliance on output. The App interoperates with third-party services governed by their own terms.
+      To the maximum extent permitted by law, the App is provided "as is" and "as available." If you are
+      a consumer under the Australian Consumer Law, Promptron's services come with guarantees that cannot
+      be excluded. For a major failure you may be entitled to a remedy and compensation for reasonably
+      foreseeable loss. Outside mandatory guarantees, implied warranties are excluded.
     </p>
 
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:support@promptron.app">support@promptron.app</a></p>
+    <h2>Third Parties and Web References</h2>
+    <p>
+      To the extent permitted by law, Promptron is not liable for indirect or consequential loss
+      or loss arising from Anthropic, OpenAI, Apple, Google, referenced websites, other third-party
+      services, provider-account usage, or reliance on output. Pasting a web link and starting an
+      action authorizes the App to fetch that page directly; the site may receive ordinary network
+      information such as your IP address and user agent. Third-party services are governed by their
+      own terms and privacy practices.
+    </p>
+
+    <h2>Termination, Changes, and Contact</h2>
+    <p>
+      Promptron may suspend access for breach or legal or security reasons. You may stop using the App
+      at any time. In-App controls can remove provider keys and the current local account's workspace,
+      model cache, saved evaluation data, and avatar; other local Promptron accounts are preserved.
+      Deleting local data does not delete your provider accounts or data already received by a provider.
+      Uninstall behaviour, device/cloud backups, and Keychain persistence are controlled by the
+      operating system; a restored backup may require you to enter provider credentials again.
+      Promptron may update these Terms with in-App notice for material changes.<br>
+      Email: <a href="mailto:support@promptron.app">support@promptron.app</a>
+    </p>
   </main>
 
   <footer>

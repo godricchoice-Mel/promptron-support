@@ -4,14 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Promptron Support</title>
-  <meta name="description" content="Support, privacy, and terms for Promptron, a BYOK macOS workspace for Claude-ready requests.">
+  <meta name="description" content="Support, privacy, and terms for Promptron, a local workspace that prepares prompts for Claude and Codex/ChatGPT.">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <header class="nav">
     <a class="brand" href="./" aria-label="Promptron home">
-      <span class="mark">P</span>
-      <span>Promptron</span>
+      <span class="mark">P</span><span>Promptron</span>
     </a>
     <nav aria-label="Primary">
       <a href="./privacy.html">Privacy</a>
@@ -22,11 +21,11 @@
 
   <main>
     <section class="hero">
-      <p class="eyebrow">Official Support</p>
+      <p class="eyebrow">Official Support · Version 2.03</p>
       <h1>Promptron Support</h1>
       <p class="lead">
-        Promptron helps you shape rough intent into Claude-ready requests with product presets,
-        bundled capability retrieval, and transparent evaluation signals.
+        Promptron turns rough intent into prompts aligned with Claude or Codex/ChatGPT product
+        surfaces, using bundled capability retrieval and transparent evaluation signals.
       </p>
       <div class="actions">
         <a class="button primary" href="mailto:support@promptron.app">Email Support</a>
@@ -36,25 +35,50 @@
 
     <section class="grid" aria-label="Support topics">
       <article>
-        <h2>Bring Your Own Key</h2>
+        <h2>Your Provider, Your Account</h2>
         <p>
-          Promptron uses your own Anthropic API key. Model requests are sent directly from
-          your device to Anthropic. Promptron does not proxy or resell model access.
+          The App Store build calls Anthropic or OpenAI directly with your matching API key. A
+          separate local macOS build can use signed-in Claude or Codex CLI subscriptions. Promptron
+          does not proxy or resell model access.
+        </p>
+      </article>
+      <article>
+        <h2>Separate Permission</h2>
+        <p>
+          Before the current local account first contacts a provider, Promptron explains what may be
+          sent and asks separately for Anthropic and OpenAI permission. Permissions are not shared
+          across local accounts. Revoke either provider later in Settings; unapproved providers are
+          excluded from fallback.
         </p>
       </article>
       <article>
         <h2>Local Workspace</h2>
         <p>
-          Projects, conversations, generated prompts, scores, and local account data are stored
-          on your device. Promptron does not run analytics, ads, tracking, or third-party SDKs.
+          Projects, conversations, generated prompts, scores, local profiles, and settings remain on
+          your device. Promptron runs no analytics, advertising, or cross-app tracking.
+        </p>
+      </article>
+      <article>
+        <h2>On-Device Dictation</h2>
+        <p>
+          Speech recognition is required to run on-device. If the selected language or device does
+          not support local recognition, recording does not start and audio is not uploaded.
         </p>
       </article>
       <article>
         <h2>Promptron Pro</h2>
         <p>
-          Pro unlocks app features: all product-line forms, full encyclopedia retrieval,
-          multi-project workspaces, live evaluation, and export. Anthropic usage is billed
-          separately to your own API key.
+          Pro unlocks App features such as additional forms, full encyclopedia retrieval, multi-project
+          workspaces, live evaluation, and export. Anthropic/OpenAI usage is billed separately by the
+          provider under your account.
+        </p>
+      </article>
+      <article>
+        <h2>Web References</h2>
+        <p>
+          Pasted links are fetched directly only when you start an action. The referenced site may
+          receive standard network information; extracted content is sent to an AI provider only when
+          you have allowed that provider.
         </p>
       </article>
     </section>
@@ -62,38 +86,48 @@
     <section class="panel" aria-labelledby="help-heading">
       <h2 id="help-heading">Common Questions</h2>
       <details open>
-        <summary>Do I need an Anthropic API key?</summary>
+        <summary>Which provider account do I need?</summary>
         <p>
-          Yes for live generation. Without an Anthropic key, Promptron can still be inspected,
-          but live model calls and live evaluation require your own Anthropic account and API key.
+          For live generation, add an Anthropic or OpenAI API key. The App can use either configured
+          provider to prepare a prompt for either target family while retaining the target family's
+          bundled guidance. The local macOS build may instead use an installed, signed-in CLI.
         </p>
       </details>
       <details>
-        <summary>Does Promptron collect my prompts?</summary>
+        <summary>Does anything leave my device?</summary>
         <p>
-          No. Promptron is designed around on-device storage and BYOK direct requests to Anthropic.
-          Prompt content is not sent to Promptron servers.
+          Yes, when you choose an online action. Relevant prompt context, text extracted from files
+          you select, and selected images may be sent directly to an AI provider you have allowed;
+          pasted links are fetched directly from the referenced websites. Nothing travels through a
+          Promptron model server. See the Privacy Policy for exact categories.
+        </p>
+      </details>
+      <details>
+        <summary>What happens if I decline provider permission?</summary>
+        <p>
+          Promptron does not contact that provider. You can continue with local/offline features and
+          later review the choice in Settings &rarr; Data Sharing.
         </p>
       </details>
       <details>
         <summary>Can I cancel Pro?</summary>
         <p>
-          Yes. Subscriptions purchased through Apple are managed in your Apple account:
-          System Settings or App Store account settings &rarr; Subscriptions.
+          Yes. Subscriptions purchased through Apple are managed in your Apple account: System
+          Settings or App Store account settings &rarr; Subscriptions.
         </p>
       </details>
       <details>
         <summary>Does Promptron promise better prompts?</summary>
         <p>
-          No. Promptron is positioned honestly: it sells convenience, product-line fit,
-          local organization, retrieval, and evaluation workflow, not guaranteed prompt superiority.
+          No. Promptron offers convenience, product-surface fit, local organization, retrieval, and
+          evaluation workflow—not a guarantee of prompt quality or output correctness.
         </p>
       </details>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Promptron. Promptron is a BYOK productivity app.</p>
+    <p>&copy; 2026 Promptron. Promptron is a provider-direct productivity app.</p>
     <p><a href="./privacy.html">Privacy Policy</a> <span>/</span> <a href="./terms.html">Terms of Service</a></p>
   </footer>
 </body>
