@@ -2,10 +2,10 @@
 
 Static support, privacy, and terms pages for App Store Connect.
 
-Use after hosting:
+Published URLs:
 
-- Support URL: `https://YOUR_HOST/`
-- Privacy Policy URL: `https://YOUR_HOST/privacy.html`
-- Terms URL: `https://YOUR_HOST/terms.html`
+- Support URL: `https://godricchoice-mel.github.io/promptron-support/`
+- Privacy Policy URL: `https://godricchoice-mel.github.io/promptron-support/privacy.html`
+- Terms URL: `https://godricchoice-mel.github.io/promptron-support/terms.html`
 
-Before App Store submission, make sure `support@promptron.app` is a real working email address or replace it in all files.
+Public support email: `hello@pawse.au` (Google Workspace MX verified on August 4, 2026).
